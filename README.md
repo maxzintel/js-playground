@@ -32,6 +32,16 @@ true || false // logical operator, || === OR.
 ```
 
 #### Types
+* Use `typeof x` to find the type of some var. `typeof` is another form of a unary operator.
+```js
+typeof 42 // number
+typeof "max" // string
+typeof true // bool
+typeof undefined // undefined
+typeof { age: 24 } // object
+typeof null // object => This is actually kind of a bug with Javascript from decades ago.
+typeof [1,2,3] // object, an array is technically a sub-type of the object type.
+```
 
 #### Vars
 
