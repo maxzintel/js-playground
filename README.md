@@ -44,6 +44,22 @@ typeof [1,2,3] // object, an array is technically a sub-type of the object type.
 ```
 
 #### Vars
+* A variable - a place in memory (RAM) to symbolically store values.
+``` js
+var name = "MAX"; // name points to somewhere in memory where we put the string "MAX".
+// referring to 'name' later will point towards that place in the memory.
+var age; // gives an empty 'undefined' value.
+age = 24; // replaces the undefined value with 24.
+
+var friends = ["Gell", "Mike", "Jake"];
+console.log(friends.length); // console is a variable given by Node or the browser or wherever this code is running.
+// Thus, it is a place in memory with a bunch of special ops associated with it.
+// console.log is saying "find console, then find log inside that"
+// Length is a property of an object.
+```
+* Single = is the 'assignment' operator. Double == and Triple === are for comparison.
+* Paranthesis (in the case of .log()) is another operator saying to call the 'log' function with the following parameters.
+* Semicolon ; simply denotes the completion of a statement/line.
 
 #### Expressions vs Statements
 
