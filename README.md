@@ -96,6 +96,27 @@ if (isEnrolled()) {
 ```
 
 #### Loops
+* How we repeat things over and over and over again.
+``` js
+var students = ["Clang","Sward","Scrozz","Oofie",];
+for (let i = 0; i < students.length; i++) { // center statement here is basically an if statement, if true, we keep looping.
+  greetStudent(students[i]);
+}
+
+for (let student of students) { // slightly different. This loop goes over a list of values. Automatically gives all vals of array.
+  greetStudent(student);
+}
+// Above is called an iterator
+```
+* The While Loop:
+``` js
+var students = ["Clang","Sward","Scrozz","Oofie",];
+while (students.length > 0) { // No initial value or increment needs to be made.
+  let student = students.pop(); // Removes students from the list.
+  greetStudent(student);
+}
+// Gives one value from the array, greet them, then remove it. All until there's nothing left in the array.
+```
 
 #### Functions
 
