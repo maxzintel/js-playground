@@ -77,6 +77,23 @@ age = 1 + (age * 2); // statement. 2 is an expression. age is an expression. (ag
 ```
 
 #### If & Else
+* Making decisions in code using conditional if and else.
+* The If Statement:
+``` js
+var age = 24;
+
+if (age >= 18) {
+  goVote();
+}
+```
+* If true, then execute the following statements.
+``` js
+if (isEnrolled()) {
+  console.log("Take the class")
+} else {
+  console.log("You gotta enroll first, dog.")
+}
+```
 
 #### Loops
 
