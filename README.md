@@ -119,6 +119,26 @@ while (students.length > 0) { // No initial value or increment needs to be made.
 ```
 
 #### Functions
+* A collection of statements that are used multiple times in different places.
+  * Code you want to reuse.
+* Also known as a 'procedure'.
+```js
+function greetStudent(student) {
+  console.log(
+    `Hello, ${student.name}!` // implies student is an object with a property 'name'
+  );
+}
+```
+* Above doesn't actually give us anything back. 'Charitable' functions that give back are covered in the next example.
+* Backticks create interpolated strings, which means we may inject other types of variables into the string itself.
+```js
+function timeLeft(timeElapsed, endTime) { // where timeEl and endTime are parameters (i.e. inputs to a function.)
+  return endTime - timeElapsed;
+}
+
+var left = timeRemaining(42,240);
+left; // 198.
+```
 
 ## Types & Coercion
 
