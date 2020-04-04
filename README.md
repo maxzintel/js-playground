@@ -68,6 +68,13 @@ age; // 27
 ```
 
 #### Expressions vs Statements
+* Example:
+```js
+var age = 24; // statement. 24 is an expression. age = 24; is an expression.
+
+age = 1 + (age * 2); // statement. 2 is an expression. age is an expression. (age * 2) is an expression.
+// 1 is an expression. 1 + (...) is an expression. And age = 1 + (...) is an expression.
+```
 
 #### If & Else
 
