@@ -16,8 +16,32 @@ A FrontendMasters course with Kyle's free book as the companion.
   * "Code must first be read before it can be written." Make your code more readable. That is the only way to survive the aforementioned cycles.
   * Spend 10% of your time thinking about how would you teach the code you wrote to a class.
 
-
 ## Programming Primer
+#### Values
+* Numbers, strings, booleans, null/undefined (emptiness), arrays, and objects.
+
+#### Operations
+```js
+3+4 // 3 and 4 are the operands, and + is the operator.
+43-1 // ops with left and right operands are 'binary' operators
+"Max" + "Zintel"
+!false // unary operation. =True.
+3.0 == 3 // loose equality. == & ===. In this case, double and triple are the same.
+3 < 4
+true || false // logical operator, || === OR. 
+```
+
+#### Types
+
+#### Vars
+
+#### Expressions vs Statements
+
+#### If & Else
+
+#### Loops
+
+#### Functions
 
 ## Types & Coercion
 
