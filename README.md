@@ -60,6 +60,12 @@ console.log(friends.length); // console is a variable given by Node or the brows
 * Single = is the 'assignment' operator. Double == and Triple === are for comparison.
 * Paranthesis (in the case of .log()) is another operator saying to call the 'log' function with the following parameters.
 * Semicolon ; simply denotes the completion of a statement/line.
+```js
+var age = 24;
+age++; // Add 1 to the current value of age and re-assign age the new value to age. age = age + 1;
+age += 2; // Same as above, but instead of adding 1 we add 2. age = age + 2;
+age; // 27
+```
 
 #### Expressions vs Statements
 
