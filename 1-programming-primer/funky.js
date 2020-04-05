@@ -1,15 +1,16 @@
 var favoriteBooks = [];
 
 function addFavoriteBook(bookName) {
-  if (bookName.includes("Great")) {
+  if (!bookName.includes("Great")) {
     favoriteBooks.push(bookName);
   };
 }
 
 function printFavoriteBooks() {
+  console.log(`Favorite books: ${favoriteBooks.length}`)
   for (let book of favoriteBooks) {
-    console.log(`Favorite book: ${book}`)
-  }
+    console.log(`${book}`)
+  };
 }
 
 addFavoriteBook("The Great Gatsby");
