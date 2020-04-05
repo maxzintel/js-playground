@@ -3,10 +3,16 @@ var favoriteBooks = [];
 function addFavoriteBook(bookName) {
   if (bookName.includes("Great")) {
     favoriteBooks.push(bookName);
-  } else {
-    console.log("Book not added to array.")
   };
 }
 
+function printFavoriteBooks() {
+  for (let book of favoriteBooks) {
+    console.log(`Favorite book: ${book}`)
+  }
+}
+
 addFavoriteBook("The Great Gatsby");
-console.log(favoriteBooks);
+addFavoriteBook("Great Expectations");
+addFavoriteBook("A Song of Ice and Fire");
+printFavoriteBooks();
