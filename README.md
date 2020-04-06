@@ -140,6 +140,55 @@ var left = timeRemaining(42,240);
 left; // 198.
 ```
 
+## Interlude - Chapter 1 of 'You Don't Know JS Yet: Get Started'
+#### Intro
+* JS running in the browser or Node.js is an implementation of the ES2019 standard (i.e. ECMAScript 2019).
+* "Java is to JavaScript as ham is to hamster." -- Jeremy Keith.
+* JS is now on its 10th major iteration since its inception in 1995.
+* There is only one version of JS that all browsers use. The only differences are in their implementation via turning certain JS features on or off at different times.
+* JS on the web is the only implementation that really matters, at least to the committee that makes decisions for the future of JS.
+* JS is _always_ backwards compatible. Meaning (even code written in 1995) all valid JS ever written is and will continue to be valid JS. "We don't break the web!"
+  * It is not forwards compatible, however. If you are running an old JS engine somewhere, you should not expect features from ES2019 to run within it.
+  * Contrastingly, HTML/CSS are not backwards compatible. They are forwards compatible in the sense that a 2019 feature running in a 2010 browser will not break the web page, the code will simply be skipped. Skipping bits of code is not really possible in JS. It could (would) completely screw things up. In HTML and CSS you will simply not see the markup and styling that is 'forwards compatible'.
+  * The best practice to address the problem of backwards compatibility is **transpiling** via something like Babel. Babel converts the new JS syntax to equivalent, but older (compatible), syntax.
+    * If the issue is not related to new syntax, but rather to a missing API method that was recently added, the most common solution is to provide a definition of that missing API method that stands in and acts as if the older env had already had it natively defined. This is called `polyfill` (aka **shim**).
+      * ex:
+```js
+// getSomeRecords() returns us a promise for some
+// data it will fetch
+var pr = getSomeRecords();
+
+// show the UI spinner while we get the data
+startSpinner();
+
+pr
+.then(renderRecords)   // render if successful
+.catch(showError)      // show an error if not
+.finally(hideSpinner)  // always hide the spinner
+```
+The above uses an ES2019 feature `.finally(...)`. A polyfill for `.finally(...)` could look like this:
+```js
+if (!Promise.prototype.finally) {
+    Promise.prototype.finally = function f(fn){
+        return this.then(
+            function t(v){
+                return Promise.resolve( fn() )
+                    .then(function t(){
+                        return v;
+                    });
+            },
+            function c(e){
+                return Promise.resolve( fn() )
+                    .then(function t(){
+                        throw e;
+                    });
+            }
+        );
+    };
+}
+```
+However, there are generally official polyfill options for these situations, and the above is not one of them. So do not use it in your actual code. **Babel will automatically find which polyfills your code needs and provide them to you**, usually.
+
 ## Types & Coercion
 
 ## Scope & Closures
