@@ -188,6 +188,16 @@ if (!Promise.prototype.finally) {
 }
 ```
 However, there are generally official polyfill options for these situations, and the above is not one of them. So do not use it in your actual code. **Babel will automatically find which polyfills your code needs and provide them to you**, usually.
+* Strict Mode:
+  * Technically optional, due to bw compatability. 
+```js
+// only whitespace and comments are allowed
+// before the use-strict pragma
+"use strict";
+// the rest of the file runs in strict mode
+```
+  * Prevents things that don't show up in your editor as syntax errors, but show upon running the code with Node (or whatever). Ex: parameters with the same name.
+  * Using strict mode is a best practice, and should not be ignored.
 
 ## Types & Coercion
 

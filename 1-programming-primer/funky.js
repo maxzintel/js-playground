@@ -1,5 +1,5 @@
+"use strict";
 var favoriteBooks = [];
-
 function addFavoriteBook(bookName) {
   if (!bookName.includes("Great")) {
     favoriteBooks.push(bookName);
