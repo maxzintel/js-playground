@@ -258,6 +258,30 @@ var myGPA = String(transcript.gpa); // returns "3.14"
 ```
 
 #### Coercion
+The way to convert from one type to another.
+```js Number to String
+var one = "There are ";
+var number = 23;
+var two = " workers.";
+console.log(one + number + two); // "There are 23 workers."
+```
+Alternatively...
+```js Number to String v2
+var number = 23;
+console.log(`There are ${number+""} workers.`); // "There are 23 workers."
+```
+* Basically, what the above examples are implying is that the only time the `+` operator does math is when all values of an equation are numbers. If anything in `+` operation is a string, the `+` will be 'overloaded' and put the final value into a string.
+```js String to number.
+function addStudent(number) {
+  return number + 1;
+}
+
+addStudent(
+  Number(studentsInputElem.value) // Using Number() forces the value to number.
+); // 24
+```
+* Grabbing `studentsInputElem.value` above would come through as a string by default.
+* We can coerce booleans to become numbers too!
 
 #### Booleans
 
