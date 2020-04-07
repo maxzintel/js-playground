@@ -200,6 +200,56 @@ However, there are generally official polyfill options for these situations, and
   * Using strict mode is a best practice, and should not be ignored.
 
 ## Types & Coercion
+Primitive Types, Converting Types, and Checking Equality.  
+#### Primitive Types
+* Let's list them!
+  * undefined
+  * string
+  * number
+  * bool
+  * object
+  * symbol (new)
+  * null? (yes, this an object, albeit with some quirks)
+  * function? (no, technically this is a subset of objects)
+  * array? (no, technically this is a subset of objects)
+* In JS, vars don't have types, values do. Ex:
+```js
+var v;
+typeof v; // undefined
+typeof someNonExistentVar; // also undefined!
+
+v = "1";
+typeof v; // string
+//...
+v = {};
+typeof v; // object
+
+v = Symbol();
+typeof v; // symbol
+
+v = null;
+typeof v; // object => a bug...
+
+v = function() {}; // a function expression.
+typeof v; // function - say whaaaa? Still an object type but has its own return value here.
+
+v = [1,2,3];
+typeof v; // object
+```
+
+#### NaN
+
+#### new
+
+#### Coercion
+
+#### Booleans
+
+#### Coercion Best Practices
+
+#### Equality
+
+#### Types Summary
 
 ## Scope & Closures
 
