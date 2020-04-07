@@ -248,8 +248,14 @@ Number.isNaN(something); // returns true
 #### new 
 * Use new on...:
   * Object(), Array(), Function(), Date(), RegExp(), Error()
+    * Constructors.
 * **Don't** use new on...:
   * String(), Number(), Bool()
+```js
+var yesterday = new Date("April 5, 2020");
+yesterday.toUTCString(); // returns "Sun, 05 Apr 2020 6:00:00 GMT"
+var myGPA = String(transcript.gpa); // returns "3.14"
+```
 
 #### Coercion
 
