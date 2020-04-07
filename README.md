@@ -237,9 +237,19 @@ v = [1,2,3];
 typeof v; // object
 ```
 
-#### NaN
+#### NaN (is a non-mathematical operation)
+```js
+var greeting = "STRINNNNNNG"
+var somethingWrong = greeting / 2;
+something; // returns NaN - cuz greeting is not a valid number
+Number.isNaN(something); // returns true
+```
 
-#### new
+#### new 
+* Use new on...:
+  * Object(), Array(), Function(), Date(), RegExp(), Error()
+* **Don't** use new on...:
+  * String(), Number(), Bool()
 
 #### Coercion
 
