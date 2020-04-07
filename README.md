@@ -284,6 +284,48 @@ addStudent(
 * We can coerce booleans to become numbers too!
 
 #### Booleans
+* Falsy & Truthy
+  * Which values, if we tried to convert them into a boolean, would become false, and which would become true?
+  * Falsy: If converted to a boolean, these values will return `false`.
+    * `""`
+    * `0, -0`
+    * `null`
+    * `NaN`
+    * `false`
+    * `undefined`
+  * Truthy:
+    * `"some filled string"`
+    * `23`
+    * `{a:1}`
+    * `[1, 3]`
+    * `function() {...}`
+    * And anything else that is not one of the Falsy vals.
+  * These conversions and assessments are made implicitly when using things like `if true {}` and `while true {}` loops. To explicitly coerce falsy/truthy assessment, try...
+```js
+if (!!inputElem.value) { // the !! forces a boolean assessment of falsy/truthy for the string.
+  ...
+}
+```
+```js
+  while (newStudents.length > 0) {
+    ...
+  }
+```
+* Generally, we want to avoid implicit coercion, but sometimes it can be good...
+```js
+var enrollment1 = 16
+var enrollment2 = workshop2Elem.value; // Some string value cause we are pulling it from a DOM element.
+
+if (Number(enrollment1) < Number(enrollment2)) { // forces them both to be numbers.
+  // ... but that's kind of unnecessary, because < automatically converts them to nums if possible.
+}
+
+// So we really want...
+if (enrollment1 < enrollment2) {
+  // ...
+}
+```
+
 
 #### Coercion Best Practices
 
