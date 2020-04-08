@@ -428,6 +428,50 @@ console.log(teacher); // Max
 * Pretty common. 
 
 #### Block scoping with let
+* More common than IIFEs these days. A method of var organization.
+```js
+var teacher = "Max";
+{
+  let teacher = "Kyle";
+  console.log(teacher); // Kyle
+}
+
+console.log(teacher); // Max
+```
+```js
+function diff(x,y) {
+  if (x > y) {
+    let tmp = x; // only exists here and on the next two lines.
+    x = y;
+    y = tmp;
+  }
+
+  return y - x;
+}
+```
+```js
+function repeat(fn,n) {
+  var result;
+  for (let i = 0; i < n; i++) { // makes an i for the for loop, and we only want it avail in the for loop.
+    result = fn( result, i );
+  }
+  return result;
+}
+```
+```js
+function formatStr(str) {
+  { let prefix, rest;
+    prefix = str.slice(0,3);
+    rest = str.slice(3);
+    str = prefix.toUpperCase() + rest;
+  }
+  if (/^FOO:/.test(str)) {
+    return str;
+  }
+  return str.slice(4)
+}
+```
+* Keep your vars as narrowly scoped as possible.
 
 #### Closure
 
