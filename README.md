@@ -363,7 +363,37 @@ if  (
 * `null == undefined`
 
 #### Types Summary
+* == is NOT about comparisons with unknown types. Types should be obvious. == is about comparisons with known types where we want to allow coercion.
 
 ## Scope & Closures
+#### Scope
+What does Scope mean? Basically, where to look for things.
+```js
+x = 42; // we need to know where in memory x is.
+console.log(y); // we need to look up console, log, and y.
+```
+* Example:
+```js
+// Note: we are not in strict mode here.
+var student = "max"; // Global scope
+function otherClass() {
+  teacher = "not max"; // No declaration w/in function, so this looks at the global scope.
+  topic = "react"; // Since we are not in strict mode, this actually creates a global topic var.
+  console.log("Welcome!");
+}
+otherClass();
+teacher; // ???? => not max
+topic; // ???? => react
+```
+
+#### Undefined vs. Undeclared
+
+#### Function Expressions
+
+#### IFFEs
+
+#### Block scoping with let
+
+#### Closure
 
 ## this Keyword & Prototypes
