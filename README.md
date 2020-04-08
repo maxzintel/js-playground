@@ -474,5 +474,32 @@ function formatStr(str) {
 * Keep your vars as narrowly scoped as possible.
 
 #### Closure
+* Closure without scope, is not understanding closure.
+* Closure is when a function "remembers" the variables outside of it, even if you pass that function elsewhere.
+  * vars outside of its scope
+  * only observable if the function is passed somewhere, like a callback. I.E. whenever the function is treated as a value.
+```js
+function ask(question) {
+  setTimeout(function waitASec() { // waitASec has closure over the question var.
+    console.log(question); // question var is not inside 'waitASec'. Its createed in the outer scope ask()
+  },100);
+}
+
+ask("What is Closure?");
+// What is Closure?
+```
+```js
+function ask(question) {
+  return function holdYourQuestion() { // returns back a question.
+    console.log(question);
+  };
+}
+
+var myQ = ask("What is closure?"); // assigns the function exp as a value.
+myQ(); // What is closure?
+```
+* Definitely need to read a little more about this, its a bit weird to me at the moment.
+* https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md
+
 
 ## this Keyword & Prototypes
