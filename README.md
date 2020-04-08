@@ -392,6 +392,27 @@ topic; // ???? => react
 * Undeclared = never declared anywhere.
 
 #### Function Expressions
+* What _specifically_ is a function expression?
+  * A function that is assigned as a value somewhere.
+  * A first class value. Something that can be passed around, used as parameters/in other functions, etc...
+```js
+var clickHandler = function() {
+  // ...
+};
+var keyHandler = function keyHandler() {
+  // ...
+};
+```
+* Above two examples are not the same thing exactly, and thus, have different names:
+  * 1) `clickHandler` = Anonymous function expression. More common.
+  * 2) `keyHandler` = Named function expresssion. If possible, this should be **ALL** we use for function expressions.
+    * Why? The Descriptive Name tells us exactly what is happening when those function expressions are being used.
+```js
+var ids = people.map(person => person.id); // Anonymous func expression.
+var ids = people.map(function getId(person) { // Named. Tells us in the name (getId) what exactly it does.
+  return person.id;
+});
+```
 
 #### IFFEs
 
