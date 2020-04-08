@@ -326,10 +326,41 @@ if (enrollment1 < enrollment2) {
 }
 ```
 
-
-#### Coercion Best Practices
-
 #### Equality
+* **== vs. ===**
+  * `==` - allows coercion (if types different).
+  * `===` - disallows coercion (types are the same). Thus, we use this when types are the same.
+  * When the types are already the same, they do the same thing.
+```js
+var student1 = "Max";
+var student2 = `${student1}`; // string to string, no coercion.
+
+var enrollment1 = 16;
+var enrollment2 = enrollment1 + 0; // both are numbers here, so no coercion.
+
+student1 == student2; // true
+student1 === student2; // true
+
+enrollment1 == enrollment2; // true
+enrollment1 === enrollment2; // true
+```
+```js
+var workshop1 = { topic: null};
+var workshop2 = {};
+
+if  (
+  (workshop1.topic === null || workshop1.topic === undefined) &&
+  (workshop2.topic === null || workshop2.topic === undefined) &&
+) {
+  // ...
+}
+if  (
+  workshop1.topic == null && workshop2.topic == null // exact same thing as above, so, == is better in some cases.
+) {
+  // ...
+}
+```
+* `null == undefined`
 
 #### Types Summary
 
