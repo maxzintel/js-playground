@@ -414,7 +414,18 @@ var ids = people.map(function getId(person) { // Named. Tells us in the name (ge
 });
 ```
 
-#### IFFEs
+#### IIFEs
+"Immediately Invoked Function Expression"
+```js
+var teacher = "Max";
+( function anotherTeacher() {
+  var teacher = "Kyle"; // does not override the teacher in the first line.
+  console.log(teacher); // Kyle
+} )(); // the () here is where it gets 'immediately' executed.
+
+console.log(teacher); // Max
+```
+* Pretty common. 
 
 #### Block scoping with let
 
