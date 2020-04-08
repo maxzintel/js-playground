@@ -387,6 +387,9 @@ topic; // ???? => react
 ```
 
 #### Undefined vs. Undeclared
+* NOT the same thing.
+* Undefined = a var that has been declared but does not have a value.
+* Undeclared = never declared anywhere.
 
 #### Function Expressions
 
