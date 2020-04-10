@@ -501,5 +501,43 @@ myQ(); // What is closure?
 * Definitely need to read a little more about this, its a bit weird to me at the moment.
 * https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/ch1.md
 
+#### Closure, via Textbook:
+* How does JS know what variables are accessible by any given statement, and how does it handle two vars of the same name?
+* Closure builds on the pricipal of least exposure (POLE).
+  * For vars we need to use over time, instead of placing them in larger outer scopes, we can encapsulate them while still preserving their access from inside functions.
+  * Functions remember these referenced scoped vars via closure.
+* Basically, if you've ever written a callback that accesses vars outside its own scope, thats closure.
+* Assessing closure in a practical way - how would programs work with and without the ability to use closure in JS. Note: if we aren't dealing with functions, closure does not exist.
+  * For closure to be observed, its function must be invoked in a different branch of the scope chain than where it was originally defined.
+  * Ex:
+```js
+// global scope RED(1)
+function lookupStudent(id) {
+  // function scope BLUE(2)
+  var students = [
+    {id: 23, name:"Clang"},
+    {id: 69, name: "Max"},
+    {id: 420, name: "Aoife"}
+  ];
+
+  return function greetStudent(greeting) {
+    // function scope GREEN(3)
+    var student = students.find(
+      student => student.id == id
+    );
+    return `${greeting}, ${student.name}!`;
+  };
+}
+
+var chosenStudents = [
+  lookupStudent(23),
+  lookupStudent(69)
+];
+
+// accessing the functions name:
+chosenStudents[0]("Hello");
+chosenStudents[1]("Howdy");
+
+```
 
 ## this Keyword & Prototypes
