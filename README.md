@@ -503,7 +503,7 @@ myQ(); // What is closure?
 
 #### Closure, via Textbook:
 * How does JS know what variables are accessible by any given statement, and how does it handle two vars of the same name?
-* Closure builds on the pricipal of least exposure (POLE).
+* Closure builds on the principal of least exposure (POLE).
   * For vars we need to use over time, instead of placing them in larger outer scopes, we can encapsulate them while still preserving their access from inside functions.
   * Functions remember these referenced scoped vars via closure.
 * Basically, if you've ever written a callback that accesses vars outside its own scope, thats closure.
@@ -523,21 +523,41 @@ function lookupStudent(id) {
   return function greetStudent(greeting) {
     // function scope GREEN(3)
     var student = students.find(
-      student => student.id == id
+      student =>
+        // Function scope ORANGE(4) 
+        student.id == id
     );
     return `${greeting}, ${student.name}!`;
   };
 }
 
 var chosenStudents = [
-  lookupStudent(23),
-  lookupStudent(69)
+  lookupStudent(23), // uses the number parameter to identify the student object we are trying to access.
+  lookupStudent(69) // instantiates the data from this studentID in memory for later use.
 ];
 
+chosenStudents[0].name; // greetStudent
 // accessing the functions name:
 chosenStudents[0]("Hello");
 chosenStudents[1]("Howdy");
+```
+Okay, I think I get this now. Basically, closure allows us to access values from a previous execution of a function with the parameters used at the time of execution. Otherwise, the values returned would be 'garbage canned' after the fact.
 
+* Pointed Closure:
+  * `student => student.id == id` arrow  function creates another scope bubble inside the function scope. Thus, the `id` reference is actually inside (4) rather than (3). The `student` parameter of the function is (4), shadowing the (3) `student`.
+* Another example!
+```js
+function adder(num1) {
+  return function addTo(num2) {
+    return num1+num2
+  };
+}
+
+var add10To = adder(10);
+var add42To = adder(42);
+
+add10To(15); // 25
+add42To(9); // 51
 ```
 
 ## this Keyword & Prototypes
