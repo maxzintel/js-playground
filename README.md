@@ -579,3 +579,37 @@ hits(); // 3
 Let's move on from closure for now. We will likely come back to this before course end.
 
 ## this Keyword & Prototypes
+The third and final pillar!
+* this, Prototypes, class {}.  
+  
+#### this
+A functions **_this_** references the execution context for that call, determined entirely by **how** the function was called.
+* A 'this-aware' function can have a different context each time it's called, making it more flexible and reusable. 'Dynamic Context'.
+```js
+var workshop = {
+  teacher: "Max",
+  ask(question) {
+    console.log(this.teacher, question); // thus, this aware function.
+  }
+};
+
+workshop.ask(" , what is Implicit Binding?"); // Determines the context and value of the this keyword used in this function.
+// Max, what is Implicit Binding?
+```
+```js
+function ask(question) {
+    console.log(this.teacher, question); // No this context yet.
+}
+
+function otherClass() {
+  var myContext = {
+    teacher = "Georgio"
+  };
+  ask.call(myContext, ", why?"); // invoke function ask, and use the myContext object as the context. myContext = this.
+}
+otherClass();  // Georgio, why?
+```
+
+#### Prototypes
+
+#### class
