@@ -541,7 +541,7 @@ chosenStudents[0].name; // greetStudent
 chosenStudents[0]("Hello");
 chosenStudents[1]("Howdy");
 ```
-Okay, I think I get this now. Basically, closure allows us to access values from a previous execution of a function with the parameters used at the time of execution. Otherwise, the values returned would be 'garbage canned' after the fact.
+Okay, I think I get this now. Basically, closure allows us to access values from an execution of a function with the parameters used at the time of execution. Otherwise, the values returned would be 'garbage canned' after the fact.
 
 * Pointed Closure:
   * `student => student.id == id` arrow  function creates another scope bubble inside the function scope. Thus, the `id` reference is actually inside (4) rather than (3). The `student` parameter of the function is (4), shadowing the (3) `student`.
@@ -559,5 +559,23 @@ var add42To = adder(42);
 add10To(15); // 25
 add42To(9); // 51
 ```
+* Closure is a 'Live Link', not a Snapshot.
+  * We are not merely reading a value => the closed over var (num1 in the above example), can be updated and reassigned.
+  * ex: let's make a counter function with closure
+```js
+function makeCounter() {
+  var count = 0;
+  return function getCurrent() {
+    count = count + 1;
+    return count;
+  };
+}
+
+var hits = makeCounter();
+hits(); // 1
+hits(); // 2
+hits(); // 3
+```
+Let's move on from closure for now. We will likely come back to this before course end.
 
 ## this Keyword & Prototypes
