@@ -1,5 +1,4 @@
 "use strict";
-// 1. In printFavoriteBooks() from before, make sure theres no accidental type conversion. Use String() to coerce to String.
 // 2. Move the addFavoriteBook() and printFavoriteBooks() to a Bookshelf class as methods. Modify them to use this to access the favoriteBooks array.
 // 3. Fill out the definition of the `loadBooks(..)` function, which should receive an instance of the `Bookshelf` class that you will pass to it.
 // 4. `loadBooks(..)` should call the provided `fakeAjax(..)`, using `BOOK_API` as the URL and an inline function expression as the callback.
@@ -9,24 +8,20 @@
 class Bookshelf {
 	constructor() {
 		this.favoriteBooks = [];
-	}
+  }
+  
+  addFavoriteBook(bookName) {
+    if (!bookName.includes("Great")) {
+      this.favoriteBooks.push(bookName);
+    }
+  }
 
-	// TODO: define methods `addFavoriteBook(..)`
-	// and `printFavoriteBooks()`
-}
-
-
-function addFavoriteBook(bookName) {
-	if (!bookName.includes("Great")) {
-		favoriteBooks.push(bookName);
-	}
-}
-
-function printFavoriteBooks() {
-	console.log(`Favorite Books: ${favoriteBooks.length}`);
-	for (let bookName of favoriteBooks) {
-		console.log(bookName);
-	}
+  printFavoriteBooks() {
+    console.log(`Favorite Books: ${this.favoriteBooks.length}`);
+    for (let bookName of this.favoriteBooks) {
+      console.log(String(bookName));
+    }
+  }
 }
 
 function loadBooks( /* .. */ ) {
@@ -47,8 +42,3 @@ function fakeAjax(url,cb) {
 		]);
 	},500);
 }
-
-addFavoriteBook("The Great Gatsby");
-addFavoriteBook("Great Expectations");
-addFavoriteBook("A Song of Ice and Fire");
-printFavoriteBooks();
