@@ -481,7 +481,7 @@ function formatStr(str) {
 ```js
 function ask(question) {
   setTimeout(function waitASec() { // waitASec has closure over the question var.
-    console.log(question); // question var is not inside 'waitASec'. Its createed in the outer scope ask()
+    console.log(question); // question var is not inside 'waitASec'. Its created in the outer scope ask()
   },100);
 }
 
