@@ -6,19 +6,34 @@
 // 5. The callback will be passed an array of book names. Loop through this array, passing each book name to the `addFavoriteBook(..)` method of the `Bookshelf` instance passed to `loadBooks(..)`. Then call the `printFavoriteBooks()` method.
 // 6. Create an instance of `Bookshelf` class, and pass it as an argument to `loadBooks(..)`.
 // Hint: Class instantiation: `new Whatever()`.
-var favoriteBooks = [];
+class Bookshelf {
+	constructor() {
+		this.favoriteBooks = [];
+	}
+
+	// TODO: define methods `addFavoriteBook(..)`
+	// and `printFavoriteBooks()`
+}
+
+
 function addFavoriteBook(bookName) {
-  if (!bookName.includes("Great")) {
-    favoriteBooks.push(bookName);
-  };
+	if (!bookName.includes("Great")) {
+		favoriteBooks.push(bookName);
+	}
 }
 
 function printFavoriteBooks() {
-  console.log(`Favorite books: ${favoriteBooks.length}`)
-  for (let book of favoriteBooks) {
-    console.log(`${book}`)
-  };
+	console.log(`Favorite Books: ${favoriteBooks.length}`);
+	for (let bookName of favoriteBooks) {
+		console.log(bookName);
+	}
 }
+
+function loadBooks( /* .. */ ) {
+	// TODO: call fakeAjax( .. );
+}
+
+var BOOK_API = "https://some.url/api";
 
 // NOTE: don't modify this function at all
 function fakeAjax(url,cb) {
