@@ -611,5 +611,41 @@ otherClass();  // Georgio, why?
 ```
 
 #### Prototypes
+Ex:
+```js
+function Workshop(teacher) { // function becomes a 'constructor'
+  this.teacher = teacher
+};
 
-#### class
+Workshop.prototype.ask = function(question) { 
+  console.log(this.teacher, question);
+};
+
+var deepJS = new Workshop("Max"); // new invokes the workshop func and the object created is linked to workshop.prototype.
+// since workshop.prototype has a ask method, we can do deepJS.ask. Without the prototype, we couldn't hit deepJS.ask.
+var reactJS = new Workshop("Clang");
+
+deepJS.ask(", is this prototype a class?");
+reactJS.ask(", prototypes seem ugly");
+```
+
+#### class{}
+* Layered on top of the prototype system. A lot more clean than base prototypes.
+* Ex:
+```js
+class Workshop {
+  constructor(teacher) {
+    this.teacher = teacher;
+  }
+  ask(question) {
+    console.log(this.teacher, question);
+  }
+}
+
+var deepJS = new Workshop("Max");
+var reactJS = new Workshop("Clang");
+
+deepJS.ask(", is this prototype a class?");
+reactJS.ask(", prototypes seem ugly");
+```
+* Very common in React. Best for building containers of data and whatnot.
